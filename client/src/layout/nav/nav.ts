@@ -26,6 +26,7 @@ export class Nav {
         this.creds = {}
       },  
       error: error => {
+        console.log(error);
         this.toast.error(error.error)
       }
     })

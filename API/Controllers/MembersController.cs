@@ -81,15 +81,10 @@ namespace API.Controllers
                 member.User.ImageUrl = photo.Url;
             }
 
-            // if (member.Photos.Count == 0) photo.IsMain = true;
-
             member.Photos.Add(photo);
 
             if (await memberRepository.SaveAllAsync())
                 return photo;
-                // return mapper.Map<PhotoDto>(photo);
-                // return CreatedAtAction(nameof(GetMember),
-                //     new { username = member.User }, mapper.Map<PhotoDto>(photo));
 
             return BadRequest("Problem adding photo");
         }

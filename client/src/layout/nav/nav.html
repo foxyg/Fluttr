@@ -1,4 +1,4 @@
-<header class="p-3 w-full fixed top-0 z-50 bg-gradient-to-r from-primary to-black">
+<header class="p-3 w-full fixed top-0 z-50 bg-linear-to-r from-primary to-black">
     <div class="flex align-middle items-center px-10 mx-auto gap-6">
         <div class="text-white">
             <a routerLink="/" routerLinkActive="text-accent" [routerLinkActiveOptions]="{exact: true}"
@@ -16,10 +16,10 @@
         <nav class="flex gap-3 my-2 uppercase text-lg text-white">
             @if(accountService.currentUser()){
             <a routerLink="/members" routerLinkActive="text-accent"
-                [routerLinkActiveOptions]="{exact: true}">Matches</a>
-            <a routerLink="/lists" routerLinkActive="text-accent" [routerLinkActiveOptions]="{exact: true}">Lists</a>
-            <a routerLink="/messages" routerLinkActive="text-accent"
-                [routerLinkActiveOptions]="{exact: true}">Messages</a>
+                [routerLinkActiveOptions]="{exact: true}">Matches </a>
+            <a routerLink="/lists" routerLinkActive="text-accent">Lists</a>
+            <a routerLink="/messages" routerLinkActive="text-accent">Messages</a>
+            <a *appHasRole="['Admin', 'Moderator']" routerLink="/admin" routerLinkActive="text-accent">Admin </a>
             }
             <a routerLink="/errors" routerLinkActive="text-accent">Errors</a>
 

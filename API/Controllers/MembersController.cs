@@ -47,14 +47,14 @@ namespace API.Controllers
 
             if (member == null) BadRequest("Could not get member");
 
-            member.DisplayName = memberUpdateDto.DisplayName ?? member.DisplayName;
-            member.Description = memberUpdateDto.Description ?? member.Description;
-            member.City = memberUpdateDto.City ?? member.City;
-            member.Country = memberUpdateDto.Country ?? member.Country;
+            member?.DisplayName = memberUpdateDto.DisplayName ?? member.DisplayName;
+            member?.Description = memberUpdateDto.Description ?? member.Description;
+            member?.City = memberUpdateDto.City ?? member.City;
+            member?.Country = memberUpdateDto.Country ?? member.Country;
 
-            member.User.DisplayName = memberUpdateDto.DisplayName ?? member.User.DisplayName;
+            member?.User.DisplayName = memberUpdateDto.DisplayName ?? member.User.DisplayName;
 
-            memberRepository.Update(member); //optional
+            memberRepository.Update(member!); //optional
 
             if (await memberRepository.SaveAllAsync()) return NoContent();
 

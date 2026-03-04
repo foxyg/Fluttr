@@ -38,7 +38,7 @@ export class Nav implements OnInit {
   login() {
     this.accountService.login(this.creds).subscribe({
       next: result => {
-        console.log(result),
+        //console.log(result),
           this.toast.success('Logged in successfully')
         this.router.navigateByUrl('/members');
         this.creds = {}

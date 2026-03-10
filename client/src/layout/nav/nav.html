@@ -41,7 +41,7 @@
                     </svg>
                     <span>{{selectedTheme()}}</span>
                 </button>
-                <ul tabindex="1" class="dropdown-content z-50 menu bg-base-100 rounded-box w-52 p-2 shadow-sm">
+                <ul (click)="handleSelectUserItem()" tabindex="1" class="dropdown-content z-50 menu bg-base-100 rounded-box w-52 p-2 shadow-sm">
                     @for(theme of themes; track $index){
                         <li (click)="handleSelectTheme(theme)">
                             <a>{{theme}}</a>
@@ -65,7 +65,14 @@
                 <input [(ngModel)]="creds.email" name="email" type="text" class="input" placeholder="Email">
                 <input [(ngModel)]="creds.password" name="password" type="password" class="input"
                     placeholder="Password">
-                <button class="btn">Login</button>
+                <button 
+                    type="submit" 
+                    class="btn btn-primary"
+                >
+                    @if(loading()){
+                       <span class="mr-3 loading loading-spinner"></span> 
+                    }
+                Login</button>
             </form>
             }
 
